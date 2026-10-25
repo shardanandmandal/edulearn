@@ -1,0 +1,409 @@
+{
+  "settings": {
+    "upiId": "teacher@okaxis",
+    "payeeName": "Prof. Aryan Sharma Classes",
+    "currency": "INR",
+    "currencySymbol": "₹",
+    "instantAccessMode": true,
+    "supportEmail": "support@edulearnportal.com",
+    "supportPhone": "+91 98765 43210",
+    "welcomeNotice": "Special 50% discount on all video lectures & class notes!"
+  },
+  "users": [
+    {
+      "id": "usr-admin-1",
+      "name": "Prof. Aryan Sharma",
+      "email": "admin@edulearn.com",
+      "password": "$2b$10$Ik/7ogUwGFzVo4/3E8VqW.AUK//BVBgcmamYEhR3sN6R9lV9hyXh6",
+      "role": "admin",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces",
+      "bio": "Senior Technical Educator, Ex-Google Lead Architect with 12+ years of teaching excellence.",
+      "phone": "+91 98765 43210",
+      "createdAt": "2026-10-04T06:35:29.273Z"
+    },
+    {
+      "id": "usr-student-1",
+      "name": "Rahul Verma",
+      "email": "student@edulearn.com",
+      "password": "$2b$10$F3IOgVI245Wk4fPXafXyr..Zl0uIo8FsvipEBqg4C7mGIlOZ2dxaC",
+      "role": "student",
+      "avatar": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=200&h=200&fit=crop&crop=faces",
+      "bio": "Computer Science student passionate about Full-Stack Engineering and Systems.",
+      "phone": "+91 99887 76655",
+      "createdAt": "2026-10-04T06:35:29.540Z"
+    },
+    {
+      "id": "usr-1791098687318-uqf89",
+      "name": "Sharda",
+      "email": "shmandal86@gmail.com",
+      "password": "$2b$10$8LppruH5p1jOp8HRs5m7xeTGi.bNPPYCluSoXzJNWHtaotdC2ARNy",
+      "role": "student",
+      "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Sharda",
+      "phone": "9015042953",
+      "bio": "Enthusiastic Learner",
+      "createdAt": "2026-10-04T07:24:47.318Z"
+    }
+  ],
+  "courses": [
+    {
+      "id": "crs-1",
+      "title": "Full-Stack Web Development Mastery (2026)",
+      "slug": "full-stack-web-development-mastery",
+      "subtitle": "Build production-ready React, Node.js, Next.js, and Cloud native applications from scratch.",
+      "description": "Master modern full-stack web engineering with industry-grade architectures. This comprehensive course covers modern front-end styling, interactive state management, robust REST & GraphQL APIs, secure JWT/OAuth authentications, microservices, and database tuning.\n\n### What you will learn:\n- End-to-end full stack workflows with React 19 and Node.js\n- State architecture, Hooks, Context, and Optimistic UI updates\n- High-throughput Express REST services and SQLite/PostgreSQL caching\n- Anti-theft content protection patterns, video streaming with byte ranges\n- Production deployment on AWS/Vercel with CI/CD automation\n\nAll video lectures and lecture notes are protected for in-browser high-definition reading and viewing.",
+      "price": 999,
+      "discountPrice": 499,
+      "currency": "INR",
+      "category": "Web Development",
+      "hashtags": [
+        "#FullStack",
+        "#ReactJS",
+        "#NodeJS",
+        "#WebDev",
+        "#JavaScript",
+        "#Frontend"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=450&fit=crop",
+      "previewVideoUrl": "/uploads/videos/sample_lecture.mp4",
+      "level": "Intermediate",
+      "language": "Hinglish / English",
+      "features": [
+        "32+ HD Streamable Video Lectures",
+        "45+ Download-Protected Class Handouts & PDFs",
+        "Live UPI QR Code Instant Checkout",
+        "Certificate of Completion",
+        "Access on Desktop & Mobile browser"
+      ],
+      "isPublished": true,
+      "instructorName": "Prof. Aryan Sharma",
+      "rating": 4.9,
+      "reviewsCount": 342,
+      "enrolledCount": 1280,
+      "createdAt": "2026-10-04T06:35:29.540Z"
+    },
+    {
+      "id": "crs-2",
+      "title": "Data Structures & Algorithms: Zero to FAANG Hero",
+      "slug": "data-structures-and-algorithms-zero-to-hero",
+      "subtitle": "Master complex algorithmic problems, dynamic programming, graphs, and system design interviews.",
+      "description": "Crack top-tier product company interviews with structured visual breakdowns of DSA concepts. Covers Trees, DP, Graphs, Trie, Sliding Window, and Backtracking with hand-drawn visual notes and annotated walkthroughs.\n\n### Course Highlights:\n- 150+ Handpicked LeetCode Medium & Hard problem breakdowns\n- Step-by-step space & time complexity visualizations\n- In-browser reading materials with line-by-line algorithm code\n- Dedicated Q&A support for doubt resolution",
+      "price": 1499,
+      "discountPrice": 799,
+      "currency": "INR",
+      "category": "Computer Science",
+      "hashtags": [
+        "#DSA",
+        "#Python",
+        "#Algorithms",
+        "#LeetCode",
+        "#CodingInterview",
+        "#FAANG"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=450&fit=crop",
+      "previewVideoUrl": "/uploads/videos/sample_lecture.mp4",
+      "level": "All Levels",
+      "language": "English",
+      "features": [
+        "40+ Interactive Problem Walkthroughs",
+        "Visual Mindmaps & Formula Cheat Sheets",
+        "Protected Classroom Document Reader",
+        "Mock Interview Readiness Checklist"
+      ],
+      "isPublished": true,
+      "instructorName": "Prof. Aryan Sharma",
+      "rating": 4.85,
+      "reviewsCount": 512,
+      "enrolledCount": 2451,
+      "createdAt": "2026-10-04T06:35:29.540Z"
+    },
+    {
+      "id": "crs-3",
+      "title": "Generative AI & LLM App Development Masterclass",
+      "slug": "generative-ai-llm-masterclass",
+      "subtitle": "Build autonomous AI agents, RAG pipelines, fine-tuned models, and vector search systems.",
+      "description": "Learn how to architect, evaluate, and ship production-ready Generative AI systems. We dive deep into LangChain, LlamaIndex, vector databases (Chroma, Pinecone), embeddings, function calling, and structured outputs.\n\n### Key Highlights:\n- Production Retrieval Augmented Generation (RAG)\n- Multi-agent orchestration and tool calling\n- Evaluation matrices and guardrails\n- Full class slides, architecture blueprints, and code notebooks viewable in reader",
+      "price": 1999,
+      "discountPrice": 999,
+      "currency": "INR",
+      "category": "Artificial Intelligence",
+      "hashtags": [
+        "#GenAI",
+        "#LLM",
+        "#MachineLearning",
+        "#Python",
+        "#AI",
+        "#DeepLearning"
+      ],
+      "thumbnail": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&h=450&fit=crop",
+      "previewVideoUrl": "/uploads/videos/sample_lecture.mp4",
+      "level": "Advanced",
+      "language": "English",
+      "features": [
+        "28+ Deep-dive Video Modules",
+        "RAG Architecture Design Blueprints",
+        "Vector Indexing Formula Notes",
+        "Lifetime In-Portal Stream Access"
+      ],
+      "isPublished": true,
+      "instructorName": "Prof. Aryan Sharma",
+      "rating": 4.95,
+      "reviewsCount": 189,
+      "enrolledCount": 890,
+      "createdAt": "2026-10-04T06:35:29.541Z"
+    },
+    {
+      "id": "crs-1791099118647",
+      "slug": "excel",
+      "rating": 5,
+      "reviewsCount": 1,
+      "enrolledCount": 1,
+      "createdAt": "2026-10-04T07:31:58.647Z",
+      "title": "Excel",
+      "subtitle": "",
+      "description": "",
+      "price": 999,
+      "discountPrice": 499,
+      "currency": "INR",
+      "category": "Data Science",
+      "hashtags": [
+        "#FullStack",
+        "#React",
+        "#Coding"
+      ],
+      "thumbnail": "/uploads/thumbnails/thumbnail-1791099117596-2971.png",
+      "previewVideoUrl": "/uploads/videos/sample_lecture.mp4",
+      "level": "All Levels",
+      "language": "English",
+      "features": [
+        "Protected Video Lectures",
+        "In-Browser Document Reader",
+        "Certificate of Completion"
+      ],
+      "isPublished": true,
+      "instructorName": "Prof. Aryan Sharma"
+    }
+  ],
+  "lessons": [
+    {
+      "id": "lsn-101",
+      "courseId": "crs-1",
+      "sectionTitle": "Module 1: Architecture & Foundation",
+      "title": "01. Welcome & Full-Stack System Design Overview",
+      "order": 1,
+      "duration": "18 min",
+      "type": "video",
+      "videoUrl": "/uploads/videos/sample_lecture.mp4",
+      "documentUrl": "",
+      "documentContent": "",
+      "isFreePreview": true,
+      "summary": "Overview of the course roadmap, architectural layers (Client, Gateway, Business Logic, Cache, DB), and how modern distributed apps work."
+    },
+    {
+      "id": "lsn-102",
+      "courseId": "crs-1",
+      "sectionTitle": "Module 1: Architecture & Foundation",
+      "title": "02. Complete Course Blueprint & Study Notes (Document)",
+      "order": 2,
+      "duration": "25 min read",
+      "type": "document",
+      "videoUrl": "",
+      "documentUrl": "",
+      "documentContent": "# Full-Stack System Design Architecture Blueprint\n\n## 1. High-Level System Architecture\nModern web applications separate concerns across clean, isolated layers:\n- **Presentation Layer (Client):** Single Page Applications (React, Vite, Next.js) executing inside the user's browser runtime.\n- **API Gateway & Routing Layer:** Reverse proxies, token verification, rate limiters, and CORS controllers.\n- **Application Services Layer:** Express / Node.js handlers implementing domain business logic and validation.\n- **Persistence & Cache Layer:** ACID-compliant databases paired with in-memory caching stores for ultra-low latency response cycles.\n\n## 2. Media Streaming Protocol (Byte-Range Requests)\nTo ensure smooth video playback without downloading complete media files upfront:\n1. The browser initiates a `GET` request with an `Accept-Ranges: bytes` header.\n2. The server acknowledges with `HTTP 206 Partial Content` and responds with a slice specified by `Content-Range: bytes START-END/TOTAL`.\n3. The browser media pipeline buffers chunks just-in-time into an internal MediaSource buffer.\n4. Direct raw URLs are shielded behind session-aware tokens to prevent unauthorized automated crawlers.\n\n## 3. Copyright Protection and DRM Strategies\n- **Dynamic Session Watermarks:** Floating learner identifiers (email, IP hash, timestamp) deter unauthorized screencasting.\n- **Context-Menu Shielding:** Native context menus and developer inspection keys are intercepted.\n- **Print Screen Deterrence:** Stylesheet print rules invalidate document captures.\n- **Read-Only In-Browser Rendering:** Documents are delivered via secured canvas/text renderer instead of binary downloadable links.\n\n> *Instructor Note: Review these foundational principles thoroughly before proceeding to Section 2.*",
+      "isFreePreview": true,
+      "summary": "Detailed architecture blueprint and reference study notes explaining high-level system layers and streaming mechanisms."
+    },
+    {
+      "id": "lsn-103",
+      "courseId": "crs-1",
+      "sectionTitle": "Module 2: React 19 & Component Architecture",
+      "title": "03. Advanced Hooks, State Machines & Performance",
+      "order": 3,
+      "duration": "24 min",
+      "type": "video_document",
+      "videoUrl": "/uploads/videos/sample_lecture.mp4",
+      "documentUrl": "",
+      "documentContent": "# Lecture 03: React 19 State Patterns & Performance Optimization\n\n### Key Concepts Covered:\n- **useActionState** and **useOptimistic** hooks for frictionless form workflows.\n- Eliminating unnecessary re-renders using immutable memory state references.\n- Debounced search queries and live filtering algorithms.\n\n```javascript\n// Example: Safe Event Propagation & State Isolation\nconst handleUpdate = async (formData) => {\n  setOptimisticState(prev => ({ ...prev, loading: true }));\n  const res = await api.submit(formData);\n  // sync state with backend payload\n};\n```\n\n### Student Checkpoint:\n- Make sure to review the state diagram in the accompanying video lesson!",
+      "isFreePreview": false,
+      "summary": "Deep dive into React 19 concurrency, optimistic UI updates, and memory-efficient rendering."
+    },
+    {
+      "id": "lsn-104",
+      "courseId": "crs-1",
+      "sectionTitle": "Module 2: React 19 & Component Architecture",
+      "title": "04. Building Secure Media & Document Viewers",
+      "order": 4,
+      "duration": "31 min",
+      "type": "video",
+      "videoUrl": "/uploads/videos/sample_lecture.mp4",
+      "documentUrl": "",
+      "documentContent": "",
+      "isFreePreview": false,
+      "summary": "Implementation walkthrough of the custom video player, progress tracking, and secure document display."
+    },
+    {
+      "id": "lsn-105",
+      "courseId": "crs-1",
+      "sectionTitle": "Module 3: Backend APIs & Security",
+      "title": "05. JWT Authentication, RBAC & Protection Protocols (Notes)",
+      "order": 5,
+      "duration": "30 min read",
+      "type": "document",
+      "videoUrl": "",
+      "documentUrl": "",
+      "documentContent": "# Module 3: Authentication and Security Architecture\n\n## Token-Based Authentication Architecture\nJsonWebTokens (JWT) provide stateless authentication across distributed web clusters:\n- **Header:** Specifies hashing algorithm (e.g. HS256).\n- **Payload:** Encodes user claims (`userId`, `role`, `exp`).\n- **Signature:** Cryptographic verification key ensuring payload integrity.\n\n### Role-Based Access Control (RBAC) Matrix:\n| Role | View Course Catalog | Watch Free Previews | Access Enrolled Lessons | Upload Media | Approve Payments |\n|---|---|---|---|---|---|\n| Guest | Yes | Yes | No | No | No |\n| Enrolled Student | Yes | Yes | Yes | No | No |\n| Instructor / Admin | Yes | Yes | Yes | Yes | Yes |\n\n### Anti-Leech Video Stream Verification\nEvery media request to `/api/stream/video/:courseId/:lessonId` undergoes strict multi-tier verification:\n1. Extraction of the bearer token or query token.\n2. Verification against the enrollment database table.\n3. Range-header parsing and dynamic byte pipe delivery.\n\n*Remember: Never store sensitive credentials in client-side localStorage without expiration boundaries.*",
+      "isFreePreview": false,
+      "summary": "Comprehensive notes on JWT, authorization middleware, role-based permissions, and anti-leech stream verification."
+    },
+    {
+      "id": "lsn-201",
+      "courseId": "crs-2",
+      "sectionTitle": "Module 1: Algorithmic Foundations",
+      "title": "01. Asymptotic Complexity & Master Theorem Breakdown",
+      "order": 1,
+      "duration": "22 min",
+      "type": "video",
+      "videoUrl": "/uploads/videos/sample_lecture.mp4",
+      "documentUrl": "",
+      "documentContent": "",
+      "isFreePreview": true,
+      "summary": "Understand Big-O, Big-Theta, Big-Omega, recurrence relations, and amortized complexity."
+    },
+    {
+      "id": "lsn-202",
+      "courseId": "crs-2",
+      "sectionTitle": "Module 1: Algorithmic Foundations",
+      "title": "02. Master Cheat Sheet: 50 Core Algorithms & Patterns (Notes)",
+      "order": 2,
+      "duration": "40 min read",
+      "type": "document",
+      "videoUrl": "",
+      "documentUrl": "",
+      "documentContent": "# Data Structures & Algorithms Core Patterns Cheat Sheet\n\n## 1. Sliding Window Pattern\n**When to use:** Contiguous subarray or substring problems looking for maximum, minimum, or target sums.\n- *Time Complexity:* O(N)\n- *Space Complexity:* O(1) or O(K) for hash map frequency counters.\n\n## 2. Two Pointers Pattern\n**When to use:** Sorted arrays where you need to find pairs, partitions, or palindrome checks.\n- Left pointer at 0, Right pointer at N-1.\n- Move inwards based on comparison logic.\n\n## 3. Fast and Slow Pointers (Floyd's Tortoise and Hare)\n**When to use:** Cycle detection in linked lists or directed state sequences.\n- Slow pointer advances 1 step.\n- Fast pointer advances 2 steps.\n- Collision signifies cycle existence.\n\n## 4. Top K Elements (Heaps)\n- Max-Heap for finding K smallest items.\n- Min-Heap for finding K largest items.\n- Complexity: O(N log K).",
+      "isFreePreview": true,
+      "summary": "Essential pattern cheat sheet for quick revision before coding interviews."
+    },
+    {
+      "id": "lsn-301",
+      "courseId": "crs-3",
+      "sectionTitle": "Module 1: Introduction to Modern LLMs",
+      "title": "01. Transformer Architecture, Attention & Vector Embeddings",
+      "order": 1,
+      "duration": "28 min",
+      "type": "video",
+      "videoUrl": "/uploads/videos/sample_lecture.mp4",
+      "documentUrl": "",
+      "documentContent": "",
+      "isFreePreview": true,
+      "summary": "Understanding self-attention mechanisms, tokenization pipelines, high-dimensional vector spaces, and cosine similarity."
+    },
+    {
+      "id": "lsn-302",
+      "courseId": "crs-3",
+      "sectionTitle": "Module 1: Introduction to Modern LLMs",
+      "title": "02. Enterprise RAG Pipeline Handbook (Document)",
+      "order": 2,
+      "duration": "35 min read",
+      "type": "document",
+      "videoUrl": "",
+      "documentUrl": "",
+      "documentContent": "# Enterprise RAG (Retrieval-Augmented Generation) Architecture\n\n## 1. The Ingestion Pipeline\n1. **Document Loading:** Ingesting PDFs, DOCX, Markdown, and transcripts.\n2. **Chunking Strategies:** Recursive character splitting with token-aware overlaps (e.g., 512 tokens with 64 overlap).\n3. **Embedding Computation:** Generating dense vectors using state-of-the-art embedding models.\n4. **Vector Database Storage:** Indexing with HNSW (Hierarchical Navigable Small World) for sub-10ms nearest-neighbor lookups.\n\n## 2. The Retrieval & Re-ranking Phase\n- Hybrid search (BM25 lexical search + dense vector semantic search).\n- Cross-encoder re-ranking to filter out hallucination hazards.\n- Prompt injection defenses and PII masking.",
+      "isFreePreview": true,
+      "summary": "Full production architectural blueprint for high-accuracy RAG systems."
+    },
+    {
+      "id": "lsn-1791099199635-x9lu",
+      "order": 1,
+      "courseId": "crs-1791099118647",
+      "sectionTitle": "Module 1: Core Fundamentals",
+      "title": "Filter",
+      "duration": "20 min",
+      "type": "video",
+      "videoUrl": "/uploads/videos/video-1791099187952-10862.mp4",
+      "documentUrl": "",
+      "documentContent": "",
+      "isFreePreview": true,
+      "summary": "",
+      "createdAt": "2026-10-04T07:33:19.681Z"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "enr-1",
+      "studentId": "usr-student-1",
+      "courseId": "crs-1",
+      "enrolledAt": "2026-10-02T06:35:29.541Z",
+      "completedLessons": [
+        "lsn-101",
+        "lsn-102"
+      ],
+      "lastAccessedLessonId": "lsn-103"
+    },
+    {
+      "id": "enr-1791097145917",
+      "studentId": "usr-student-1",
+      "courseId": "crs-2",
+      "enrolledAt": "2026-10-04T06:59:05.917Z",
+      "completedLessons": [
+        "lsn-201"
+      ],
+      "lastAccessedLessonId": "lsn-201"
+    },
+    {
+      "id": "enr-1791099333633",
+      "studentId": "usr-student-1",
+      "courseId": "crs-1791099118647",
+      "enrolledAt": "2026-10-04T07:35:33.633Z",
+      "completedLessons": [],
+      "lastAccessedLessonId": null
+    }
+  ],
+  "payments": [
+    {
+      "id": "pay-1",
+      "studentId": "usr-student-1",
+      "studentName": "Rahul Verma",
+      "studentEmail": "student@edulearn.com",
+      "courseId": "crs-1",
+      "courseTitle": "Full-Stack Web Development Mastery (2026)",
+      "amount": 499,
+      "currency": "INR",
+      "status": "approved",
+      "utrNumber": "UPI429012398451",
+      "paymentMethod": "UPI_QR",
+      "createdAt": "2026-10-02T06:35:29.541Z",
+      "approvedAt": "2026-10-02T06:35:39.541Z"
+    },
+    {
+      "id": "pay-1791097144247",
+      "status": "approved",
+      "createdAt": "2026-10-04T06:59:04.247Z",
+      "studentId": "usr-student-1",
+      "studentName": "Rahul Verma",
+      "studentEmail": "student@edulearn.com",
+      "courseId": "crs-2",
+      "courseTitle": "Data Structures & Algorithms: Zero to FAANG Hero",
+      "amount": 799,
+      "currency": "INR",
+      "utrNumber": "UPI998877665544",
+      "note": "Test Payment",
+      "paymentMethod": "UPI_QR",
+      "approvedAt": "2026-10-04T06:59:04.239Z"
+    },
+    {
+      "id": "pay-1791099333495",
+      "status": "approved",
+      "createdAt": "2026-10-04T07:35:33.495Z",
+      "studentId": "usr-student-1",
+      "studentName": "Rahul Verma",
+      "studentEmail": "student@edulearn.com",
+      "courseId": "crs-1791099118647",
+      "courseTitle": "Excel",
+      "amount": 499,
+      "currency": "INR",
+      "utrNumber": "123456",
+      "note": "Paid via UPI for Excel",
+      "paymentMethod": "UPI_QR",
+      "approvedAt": "2026-10-04T07:35:33.419Z"
+    }
+  ]
+}
