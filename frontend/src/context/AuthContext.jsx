@@ -68,15 +68,6 @@ export const AuthProvider = ({ children }) => {
     return res;
   };
 
-  // Quick 1-click demo switcher for seamless evaluation
-  const demoLogin = async (role = 'student') => {
-    if (role === 'admin') {
-      return login('admin@edulearn.com', 'admin123');
-    } else {
-      return login('student@edulearn.com', 'student123');
-    }
-  };
-
   return (
     <AuthContext.Provider
       value={{
@@ -88,8 +79,7 @@ export const AuthProvider = ({ children }) => {
         login,
         register,
         logout,
-        updateProfile,
-        demoLogin
+        updateProfile
       }}
     >
       {children}

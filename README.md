@@ -34,14 +34,27 @@ A production-ready, modern learning platform built with **Node.js, Express, Reac
 
 ---
 
-## 🔑 Default Accounts for Testing
+## 🔐 Environment Variables & Security Configuration
 
-| Role | Email | Password | Permissions |
-|---|---|---|---|
-| **Instructor / Admin** | `admin@edulearn.com` | `admin123` | Full Admin studio, course creation, video/doc upload, QR settings, payment approvals |
-| **Demo Student** | `student@edulearn.com` | `student123` | Course enrollment, profile editing, secure video streaming, document reading |
+Create a `.env` file in the root or `backend/` directory with the following variables:
 
-> *Tip: You can also click the **"Role Switcher"** button in the top navbar to instantly switch between Admin and Student mode.*
+```env
+# Required: Secure secret key for signing authentication tokens
+JWT_SECRET=your_super_strong_random_jwt_secret_here
+
+# Optional: Comma-separated list of allowed CORS origins (default: same origin only)
+ALLOWED_ORIGINS=http://localhost:3000,http://localhost:5000
+
+# Optional: Initial Administrator credentials (used on first start if no admin exists)
+ADMIN_EMAIL=admin@yourdomain.com
+ADMIN_PASSWORD=your_secure_admin_password_min_8_chars
+
+# Port configuration (default: 5000)
+PORT=5000
+
+# Environment mode (production disables any mock user seeds)
+NODE_ENV=production
+```
 
 ---
 

@@ -3,11 +3,13 @@ node_modules/
 backend/node_modules/
 frontend/node_modules/
 
-# User uploads (large videos, keep only sample)
-backend/uploads/videos/video-*
-backend/uploads/thumbnails/*.mp4
-backend/uploads/documents/*
-!backend/uploads/videos/sample_lecture.mp4
+# Database store
+backend/data/store.json
+
+# User uploads (except .gitkeep files)
+backend/uploads/**
+!backend/uploads/**/
+!backend/uploads/**/.gitkeep
 
 # Environment and secrets
 .env

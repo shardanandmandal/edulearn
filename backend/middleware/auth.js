@@ -1,7 +1,12 @@
 const jwt = require('jsonwebtoken');
 const db = require('../database');
 
-const JWT_SECRET = process.env.JWT_SECRET || 'coursehub-secret-key-edulearn-2026';
+if (!process.env.JWT_SECRET) {
+  console.error('FATAL ERROR: JWT_SECRET environment variable is missing. Server refusing to start.');
+  throw new Error('FATAL ERROR: JWT_SECRET environment variable is missing. Server refusing to start.');
+}
+
+const JWT_SECRET = process.env.JWT_SECRET;
 
 const requireAuth = (req, res, next) => {
   // Support both header and query param token (query param is required for HTML5 video/audio streams)

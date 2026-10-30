@@ -2,16 +2,33 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const rateLimit = require('express-rate-limit');
 const db = require('../database');
 const { JWT_SECRET, requireAuth } = require('../middleware/auth');
 
+// Rate limiter for auth endpoints: 10 attempts per 15 minutes per IP
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 10,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: {
+    success: false,
+    message: 'Too many authentication attempts from this IP, please try again after 15 minutes.'
+  }
+});
+
 // Register
-router.post('/register', (req, res) => {
+router.post('/register', authLimiter, (req, res) => {
   try {
     const { name, email, password, phone, bio } = req.body;
 
     if (!name || !email || !password) {
       return res.status(400).json({ success: false, message: 'Name, email, and password are required.' });
+    }
+
+    if (password.length < 8) {
+      return res.status(400).json({ success: false, message: 'Password must be at least 8 characters long.' });
     }
 
     const existingUser = db.getUserByEmail(email);
@@ -33,7 +50,7 @@ router.post('/register', (req, res) => {
     const token = jwt.sign(
       { id: newUser.id, email: newUser.email, role: newUser.role },
       JWT_SECRET,
-      { expiresIn: '30d' }
+      { expiresIn: '7d' }
     );
 
     const { password: _, ...userSafe } = newUser;
@@ -50,7 +67,7 @@ router.post('/register', (req, res) => {
 });
 
 // Login
-router.post('/login', (req, res) => {
+router.post('/login', authLimiter, (req, res) => {
   try {
     const { email, password } = req.body;
 
@@ -71,7 +88,7 @@ router.post('/login', (req, res) => {
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role },
       JWT_SECRET,
-      { expiresIn: '30d' }
+      { expiresIn: '7d' }
     );
 
     const { password: _, ...userSafe } = user;
@@ -115,6 +132,9 @@ router.put('/profile', requireAuth, (req, res) => {
     if (avatar) updates.avatar = avatar;
 
     if (newPassword) {
+      if (newPassword.length < 8) {
+        return res.status(400).json({ success: false, message: 'New password must be at least 8 characters long.' });
+      }
       if (!currentPassword) {
         return res.status(400).json({ success: false, message: 'Current password is required to set new password.' });
       }

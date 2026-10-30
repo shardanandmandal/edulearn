@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import {
-  X, User, Mail, Lock, Phone, FileText, ArrowRight,
-  Sparkles, CheckCircle2, AlertCircle
+  X, User, Mail, Lock, Phone, ArrowRight, AlertCircle
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
 export const AuthModal = ({ initialMode = 'login', onClose, onSuccess }) => {
-  const { login, register, demoLogin } = useAuth();
+  const { login, register } = useAuth();
   const [mode, setMode] = useState(initialMode); // 'login' or 'register'
 
   // Form states
@@ -21,8 +20,14 @@ export const AuthModal = ({ initialMode = 'login', onClose, onSuccess }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setError(null);
+
+    if (mode === 'register' && password.length < 8) {
+      setError('Password must be at least 8 characters long.');
+      return;
+    }
+
+    setLoading(true);
 
     try {
       if (mode === 'login') {
@@ -44,19 +49,6 @@ export const AuthModal = ({ initialMode = 'login', onClose, onSuccess }) => {
       }
     } catch (err) {
       setError('Network error. Please try again.');
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handleQuickDemo = async (role) => {
-    setLoading(true);
-    try {
-      await demoLogin(role);
-      onSuccess?.();
-      onClose();
-    } catch (err) {
-      setError('Demo login failed.');
     } finally {
       setLoading(false);
     }
@@ -141,19 +133,22 @@ export const AuthModal = ({ initialMode = 'login', onClose, onSuccess }) => {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="student@edulearn.com"
+                  placeholder="you@example.com"
                   className="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-xs text-white placeholder-slate-600 focus:outline-none focus:border-indigo-500"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Password *</label>
+              <label className="block text-xs font-medium text-slate-300 mb-1">
+                Password * {mode === 'register' && <span className="text-slate-500 font-normal">(min. 8 characters)</span>}
+              </label>
               <div className="relative">
                 <Lock className="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2" />
                 <input
                   type="password"
                   required
+                  minLength={mode === 'register' ? 8 : undefined}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
@@ -206,31 +201,6 @@ export const AuthModal = ({ initialMode = 'login', onClose, onSuccess }) => {
               )}
             </button>
           </form>
-
-          {/* Quick Demo Login Helpers for Tester */}
-          <div className="pt-4 border-t border-slate-800 space-y-2">
-            <p className="text-[11px] text-center text-slate-400 font-medium">
-              Instant 1-Click Evaluation Accounts:
-            </p>
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => handleQuickDemo('student')}
-                className="py-2 px-3 bg-slate-800/80 hover:bg-slate-700/80 text-slate-200 rounded-xl text-xs font-semibold border border-slate-700/60 transition-all flex items-center justify-center space-x-1"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-amber-400" />
-                <span>Demo Student</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleQuickDemo('admin')}
-                className="py-2 px-3 bg-indigo-950/60 hover:bg-indigo-900/60 text-indigo-300 rounded-xl text-xs font-semibold border border-indigo-500/30 transition-all flex items-center justify-center space-x-1"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Demo Admin</span>
-              </button>
-            </div>
-          </div>
         </div>
       </div>
     </div>

@@ -49,6 +49,11 @@ export const StudentDashboard = ({ onOpenCourse }) => {
     try {
       const updates = { name, phone, bio };
       if (newPassword) {
+        if (newPassword.length < 8) {
+          setProfileMsg({ type: 'error', text: 'New password must be at least 8 characters long.' });
+          setSaving(false);
+          return;
+        }
         updates.currentPassword = currentPassword;
         updates.newPassword = newPassword;
       }
@@ -287,9 +292,10 @@ export const StudentDashboard = ({ onOpenCourse }) => {
                   />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-slate-400 mb-1">New Password</label>
+                  <label className="block text-xs font-medium text-slate-400 mb-1">New Password (min. 8 characters)</label>
                   <input
                     type="password"
+                    minLength={8}
                     value={newPassword}
                     onChange={(e) => setNewPassword(e.target.value)}
                     placeholder="••••••••"

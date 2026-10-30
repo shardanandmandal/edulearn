@@ -6,21 +6,29 @@ const DATA_FILE = path.join(__dirname, 'data', 'store.json');
 
 // Default initial database state
 const getDefaultData = () => {
-  const adminHashedPassword = bcrypt.hashSync('admin123', 10);
-  const studentHashedPassword = bcrypt.hashSync('student123', 10);
+  const isProduction = process.env.NODE_ENV === 'production';
+  let users = [];
+  let enrollments = [];
+  let payments = [];
 
-  return {
-    settings: {
-      upiId: 'teacher@okaxis',
-      payeeName: 'Prof. Aryan Sharma Classes',
-      currency: 'INR',
-      currencySymbol: '₹',
-      instantAccessMode: true, // Auto-unlock upon UTR entry, with audit log
-      supportEmail: 'support@edulearnportal.com',
-      supportPhone: '+91 98765 43210',
-      welcomeNotice: 'Special 50% discount on all video lectures & class notes!'
-    },
-    users: [
+  if (isProduction) {
+    if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+      users.push({
+        id: 'usr-admin-' + Date.now(),
+        name: 'Administrator',
+        email: process.env.ADMIN_EMAIL.trim().toLowerCase(),
+        password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10),
+        role: 'admin',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces',
+        bio: 'Platform Administrator',
+        phone: '',
+        createdAt: new Date().toISOString()
+      });
+    }
+  } else {
+    const adminHashedPassword = bcrypt.hashSync('admin123', 10);
+    const studentHashedPassword = bcrypt.hashSync('student123', 10);
+    users = [
       {
         id: 'usr-admin-1',
         name: 'Prof. Aryan Sharma',
@@ -43,7 +51,48 @@ const getDefaultData = () => {
         phone: '+91 99887 76655',
         createdAt: new Date().toISOString()
       }
-    ],
+    ];
+    enrollments = [
+      {
+        id: 'enr-1',
+        studentId: 'usr-student-1',
+        courseId: 'crs-1',
+        enrolledAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+        completedLessons: ['lsn-101', 'lsn-102'],
+        lastAccessedLessonId: 'lsn-103'
+      }
+    ];
+    payments = [
+      {
+        id: 'pay-1',
+        studentId: 'usr-student-1',
+        studentName: 'Rahul Verma',
+        studentEmail: 'student@edulearn.com',
+        courseId: 'crs-1',
+        courseTitle: 'Full-Stack Web Development Mastery (2026)',
+        amount: 499,
+        currency: 'INR',
+        status: 'approved',
+        utrNumber: 'UPI429012398451',
+        paymentMethod: 'UPI_QR',
+        createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
+        approvedAt: new Date(Date.now() - 86400000 * 2 + 10000).toISOString()
+      }
+    ];
+  }
+
+  return {
+    settings: {
+      upiId: 'teacher@okaxis',
+      payeeName: 'Prof. Aryan Sharma Classes',
+      currency: 'INR',
+      currencySymbol: '₹',
+      instantAccessMode: true, // Auto-unlock upon UTR entry, with audit log
+      supportEmail: 'support@edulearnportal.com',
+      supportPhone: '+91 98765 43210',
+      welcomeNotice: 'Special 50% discount on all video lectures & class notes!'
+    },
+    users,
     courses: [
       {
         id: 'crs-1',
@@ -375,39 +424,15 @@ Every media request to \`/api/stream/video/:courseId/:lessonId\` undergoes stric
         summary: 'Full production architectural blueprint for high-accuracy RAG systems.'
       }
     ],
-    enrollments: [
-      {
-        id: 'enr-1',
-        studentId: 'usr-student-1',
-        courseId: 'crs-1',
-        enrolledAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-        completedLessons: ['lsn-101', 'lsn-102'],
-        lastAccessedLessonId: 'lsn-103'
-      }
-    ],
-    payments: [
-      {
-        id: 'pay-1',
-        studentId: 'usr-student-1',
-        studentName: 'Rahul Verma',
-        studentEmail: 'student@edulearn.com',
-        courseId: 'crs-1',
-        courseTitle: 'Full-Stack Web Development Mastery (2026)',
-        amount: 499,
-        currency: 'INR',
-        status: 'approved',
-        utrNumber: 'UPI429012398451',
-        paymentMethod: 'UPI_QR',
-        createdAt: new Date(Date.now() - 86400000 * 2).toISOString(),
-        approvedAt: new Date(Date.now() - 86400000 * 2 + 10000).toISOString()
-      }
-    ]
+    enrollments,
+    payments
   };
 };
 
 class Database {
   constructor() {
     this.ensureDataFile();
+    this.initAdminUser();
   }
 
   ensureDataFile() {
@@ -418,6 +443,33 @@ class Database {
     if (!fs.existsSync(DATA_FILE)) {
       const initial = getDefaultData();
       fs.writeFileSync(DATA_FILE, JSON.stringify(initial, null, 2), 'utf-8');
+    }
+  }
+
+  initAdminUser() {
+    try {
+      const dir = path.dirname(DATA_FILE);
+      if (!fs.existsSync(DATA_FILE)) return;
+      const content = fs.readFileSync(DATA_FILE, 'utf-8');
+      const db = JSON.parse(content);
+      const hasAdmin = (db.users || []).some(u => u.role === 'admin');
+      if (!hasAdmin && process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD) {
+        db.users = db.users || [];
+        db.users.push({
+          id: 'usr-admin-' + Date.now(),
+          name: 'Administrator',
+          email: process.env.ADMIN_EMAIL.trim().toLowerCase(),
+          password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10),
+          role: 'admin',
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=faces',
+          bio: 'Platform Administrator',
+          phone: '',
+          createdAt: new Date().toISOString()
+        });
+        fs.writeFileSync(DATA_FILE, JSON.stringify(db, null, 2), 'utf-8');
+      }
+    } catch (e) {
+      console.error('Error in initAdminUser:', e);
     }
   }
 
